@@ -102,13 +102,23 @@ if($_SESSION['username'] != null)
         echo '<a href="../login2.php"><h3>新增會員資料</h3></a>';
         echo '<a href="delete.php"><h3>刪除會員資料</h3></a>';
         echo '<a href="logout.php"><h3>登出</h3></a>  <br><br>';
+    
+        //將資料庫裡的所有會員資料顯示在畫面上
+        $sql = "SELECT * FROM member_table";
+        $result = mysql_query($sql);
+        while($row = mysql_fetch_row($result))
+        {
+                 echo "$row[0] - 名字(帳號)：$row[1] " . 
+                 "電話：$row[3]<br>";
+        }
 }
 else
 {
-        echo '<h3>您無權限觀看此頁面!<h3>';
+        echo '您無權限觀看此頁面!';
         echo '<meta http-equiv=REFRESH CONTENT=2;url=index.php>';
 }
 ?>
+
 
 
     <script src="../jquery.js"></script>
