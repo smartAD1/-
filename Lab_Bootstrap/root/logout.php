@@ -2,18 +2,18 @@
 <html lang="en">
 
 <head>
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
   <title>小專題</title>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
   <meta name="author" content="Pedro Botelho for Codrops" />
-  <script src="jquery.js"></script>
-  <link rel="stylesheet" href="css/demo.css" />
-  <link rel="stylesheet" href="css/slicebox.css" />
-  <link rel="stylesheet" href="css/custom.css" />
-  <link rel="stylesheet" href="css/init.css" />
-  <script src="js/modernizr.custom.46884.js"></script>
+  <script src="../jquery.js"></script>
+  <link rel="stylesheet" href="../css/demo.css" />
+  <link rel="stylesheet" href="../css/slicebox.css" />
+  <link rel="stylesheet" href="../css/custom.css" />
+  <link rel="stylesheet" href="../css/init.css" />
+  <script src="../js/modernizr.custom.46884.js"></script>
 
 </head>
 
@@ -79,16 +79,17 @@
   
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
 <?php
 //將session清空
-unset($_SESSION['username']);
 unset($_SESSION['Root']);
 echo '<h3>登出</h3>';
 echo '<meta http-equiv=REFRESH CONTENT=1;url=index.php>';
-?>
-    <script src="jquery.js"></script>
-  <script src="js/jquery.slicebox.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+?>  
+  
+    <script src="../jquery.js"></script>
+  <script src="../js/jquery.slicebox.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
 
 </body>
 

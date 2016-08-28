@@ -4,17 +4,17 @@
 <html lang="en">
 
 <head>
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
   <title>小專題</title>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
   <meta name="author" content="Pedro Botelho for Codrops" />
-  <script src="jquery.js"></script>
-  <link rel="stylesheet" href="css/demo.css" />
-  <link rel="stylesheet" href="css/slicebox.css" />
-  <link rel="stylesheet" href="css/custom.css" />
-  <link rel="stylesheet" href="css/init.css" />
+  <script src="../jquery.js"></script>
+  <link rel="stylesheet" href="../css/demo.css" />
+  <link rel="stylesheet" href="../css/slicebox.css" />
+  <link rel="stylesheet" href="../css/custom.css" />
+  <link rel="stylesheet" href="../css/init.css" />
   <script src="js/modernizr.custom.46884.js"></script>
 
 </head>
@@ -30,18 +30,18 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="index.php">首頁</a></li>
-        <li><a href="buycard.php">購物車系統</a></li>
+        <li><a href="../index.php">首頁</a></li>
+        <li><a href="../buycard.php">購物車系統</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">其他景點 <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li>
               <a href=></a>
             </li>
-            <li><a href="小專2.1.php">薩爾布魯根</a></li>
-            <li><a href="index2.php">奧地利景點</a></li>
-            <li><a href="紐倫堡.php">紐倫堡</a></li>
-            <li><a href="薩克森州.php">薩克森州</a></li>
+            <li><a href="../小專2.1.php">薩爾布魯根</a></li>
+            <li><a href="../index2.php">奧地利景點</a></li>
+            <li><a href="../紐倫堡.php">紐倫堡</a></li>
+            <li><a href="../薩克森州.php">薩克森州</a></li>
           </ul>
         </li>
       </ul>
@@ -60,9 +60,9 @@
         <li class="dropdown">
           <a href="#" data-icon="home" data-toggle="dropdown">功能表<b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="login.php">登入</a></li>
+            <li><a href="../login.php">登入</a></li>
             <li><a href="member.php">會員中心</a></li>
-            <li><a href="index.php">回首頁</a></li>
+            <li><a href="../index.php">回首頁</a></li>
             <li class="divider"></li>
             <li><a href="#">登出</a></li>
           </ul>
@@ -114,9 +114,9 @@
 <a href="javascript:history.back()"><h3>回上一頁<h3></a>
 
 
-  <script src="jquery.js"></script>
-  <script src="js/jquery.slicebox.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  <script src="../jquery.js"></script>
+  <script src="../js/jquery.slicebox.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
 
 </body>
 

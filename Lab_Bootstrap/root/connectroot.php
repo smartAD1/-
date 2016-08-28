@@ -76,13 +76,13 @@
 <?php
 //連接資料庫
 //只要此頁面上有用到連接MySQL就要include它
-include("../mysqconnect.php");
+include("mysqconnectroot.php");
 
-$id = $_POST['username'];
+$id = $_POST['Root'];
 $pw = $_POST['pw'];
-$Lv = $_POST['Lv'] = $_POST["Lv"];
+
 //搜尋資料庫資料
-$sql = "SELECT * FROM member_table where username = '$id'";
+$sql = "SELECT * FROM ROOOT where Root = '$id'";
 $result = mysql_query($sql);
 $row = @mysql_fetch_row($result);
 
@@ -91,16 +91,15 @@ $row = @mysql_fetch_row($result);
 if($id != null && $pw != null && $row[1] == $id && $row[2] == $pw)
 {
         //將帳號寫入session，方便驗證使用者身份
-        $_SESSION['username'] = $id;
-        $_SESSION['Level']= $Lv;
-        
+        $_SESSION['Root'] = $id;
+
         echo '<h3>登入成功!</h3>';
         echo '<meta http-equiv=REFRESH CONTENT=1;url=member.php>';
 }
 else
 {
         echo '<h3>登入失敗!</h3>';
-        echo '<meta http-equiv=REFRESH CONTENT=1;url=../login.php>';
+        echo '<meta http-equiv=REFRESH CONTENT=1;url=login.php>';
 }
 
 ?>

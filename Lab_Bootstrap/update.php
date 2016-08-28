@@ -99,6 +99,8 @@ else
         echo '<meta http-equiv=REFRESH CONTENT=2;url=index.php>';
 }
 ?>
+
+
 		<script src="jquery.js"></script>
 		<script src="js/jquery.slicebox.js"></script>
 		<script src="js/bootstrap.min.js"></script>

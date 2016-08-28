@@ -1,11 +1,14 @@
 <?php session_start(); ?>
 <?php 
-
 if (isset($_SESSION["username"]))
   $sUserName = $_SESSION["username"];
 else 
   $sUserName = "Guest";
 
+if (isset($_SESSION["Root"]))
+  $sUserName = $_SESSION["Root"];
+else 
+  $Root = "";
 ?>
 <html lang="en">
     <head>
@@ -20,7 +23,8 @@ else
     <link rel="stylesheet" href="css/demo.css" />
 		<link rel="stylesheet" href="css/custom.css" />
     <script src="js/modernizr.custom.46884.js"></script>
-    <style>
+    
+    <style>/* 首頁動畫管理   */
         div    {clear:left;}
         .selected  {background: orange; }
         .small {
@@ -58,7 +62,7 @@ else
       
       
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">其他景點 <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">其他景點 <b class="caret"></b></a><!---景點連結管理-->
           <ul class="dropdown-menu" >
             <li><a href=></a></li>
             <li><a href="小專2.1.php">薩爾布魯根</a></li>
@@ -77,18 +81,23 @@ else
       </form>
       <ul class="nav navbar-nav navbar-right">
       <li class="dropdown">
-          <a href="#" data-toggle="dropdown"><?php echo 會員：. $sUserName ?>&nbsp&nbsp&nbsp 功能表<b class="caret"></b></a>
+          <a href="#" data-toggle="dropdown"><?php echo 會員：. $sUserName . $Root ?> &nbsp&nbsp&nbsp 功能表<b class="caret"></b></a>
+        
            <ul class="dropdown-menu">
              <?php if ($sUserName == "Guest"): ?>
-            <li><a href="login.php">登入</a></li>
+          <li><a href="login.php">登入</a></li><!-- /.修改登入下拉式選單 -->
             <li><a href="member.php">會員中心</a></li>
-            <li><a href="root/login.php">管理員登入</a></li>
-                       <?php else: ?>
-           <li><a href="member.php">會員中心</a></li>
-          
+            <li><a href="login2.php">註冊</a></li>
+            <li><a href="index.php">回首頁</a></li>
+            <li><a href="root/login.php">管理登入</a></li>
+            <?php else: ?>
+            <li><a href="member.php">會員中心</a></li>
+            <li><a href="index.php">回首頁</a></li>
+            <li><a href="root/member.php">管理</a></li>
             <li class="divider"></li>
             <li><a href="logout.php">登出</a></li>
             <?php endif; ?>
+          </ul>
           </ul>
         </li>
       </ul>
@@ -113,7 +122,7 @@ else
 </div>
 </div>
 <div>
-    <h3>這一切都是為了過日子做的,以上是一些想去的景點介紹<h3>
+    <h3>以上是景點介紹<h3>
 </div>
 
 			<p class="info"><strong>測試區</strong></p>

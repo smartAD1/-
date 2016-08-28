@@ -3,7 +3,7 @@
 
 if (isset($_SESSION["username"]))
   $sUserName = $_SESSION["username"];
-// if else ($_SESSION['USER']) ==1 
+// if else ($_SESSION['USER']) ==1;
 
 else 
   $sUserName = "Guest";
@@ -62,9 +62,13 @@ else
         <ul class="dropdown-menu">
            <?php if ($sUserName == "Guest"): ?>
             <li><a href="login.php">登入</a></li><!-- /.修改登入下拉式選單 -->
+            <li><a href="member.php">會員中心</a></li>
+            <li><a href="login2.php">註冊</a></li>
             <li><a href="index.php">回首頁</a></li>
             <?php else: ?>
-            <li><a href="member.php">會員中心</a></li>
+     <li><a href="member.php">會員中心</a></li>
+            <li><a href="index.php">回首頁</a></li>
+            <li><a href="root/member.php">管理</a></li>
             <li class="divider"></li>
             <li><a href="logout.php">登出</a></li>
             <?php endif; ?>

@@ -60,9 +60,14 @@ else
             <a href="#" data-toggle="dropdown"><?php echo 會員：. $sUserName ?>&nbsp&nbsp&nbsp 功能表<b class="caret"></b></a>
         <ul class="dropdown-menu">
              <?php if ($sUserName == "Guest"): ?>
-            <li><a href="login.php">登入</a></li>
+            <li><a href="login.php">登入</a></li><!-- /.修改登入下拉式選單 -->
+            <li><a href="member.php">會員中心</a></li>
+            <li><a href="login2.php">註冊</a></li>
+            <li><a href="index.php">回首頁</a></li>
             <?php else: ?>
             <li><a href="member.php">會員中心</a></li>
+            <li><a href="index.php">回首頁</a></li>
+            <li><a href="root/member.php">管理登入</a></li>
             <li class="divider"></li>
             <li><a href="logout.php">登出</a></li>
             <?php endif; ?>
@@ -171,7 +176,7 @@ else
 	
 		<script src="jquery.js"></script>
 		<script src="js/jquery.slicebox.js"></script>
-		<script src="js/Slicebox4.js"></script>
+		<script src="js/Slicebox4.js"></script><!-- 圖片特效管理 -->
 		<script src="js/bootstrap.min.js"></script>
 
 	</body>

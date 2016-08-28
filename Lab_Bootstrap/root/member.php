@@ -1,8 +1,8 @@
 <?php session_start(); ?>
 <?php 
 
-if (isset($_SESSION["username"]))
-  $sUserName = $_SESSION["username"];
+if (isset($_SESSION["Root"]))
+  $sUserName = $_SESSION["Root"];
 else 
   $sUserName = "Guest";
 
@@ -90,16 +90,16 @@ else
 
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <?php
-include("../mysqconnect.php");
+include("mysqconnectroot.php");
 
 
 //此判斷為判定觀看此頁有沒有權限
 //說不定是路人或不相關的使用者
 //因此要給予排除
-if($_SESSION['username'] != null)
+if($_SESSION['Root'] != null)
 {
         echo '<a href="update.php"><h3>修改會員資料</h3></a>';
-        echo '<a href="../login2.php"><h3>新增會員資料</h3></a>';
+        echo '<a href="login2.php"><h3>新增會員資料</h3></a>';
         echo '<a href="delete.php"><h3>刪除會員資料</h3></a>';
         echo '<a href="logout.php"><h3>登出</h3></a>  <br><br>';
     
@@ -108,14 +108,14 @@ if($_SESSION['username'] != null)
         $result = mysql_query($sql);
         while($row = mysql_fetch_row($result))
         {
-                 echo "$row[0] - 名字(帳號)：$row[1] " . 
+                 echo "$row[1] - 名字(帳號)：$row[2] " . 
                  "電話：$row[3]<br>";
         }
 }
 else
 {
         echo '您無權限觀看此頁面!';
-        echo '<meta http-equiv=REFRESH CONTENT=2;url=index.php>';
+        echo '<meta http-equiv=REFRESH CONTENT=2;url=login.php>';
 }
 ?>
 

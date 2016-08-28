@@ -1,8 +1,8 @@
 <?php session_start(); ?>
 <?php 
 
-if (isset($_SESSION["username"]))
-  $sUserName = $_SESSION["username"];
+if (isset($_SESSION["Root"]))
+  $sUserName = $_SESSION["Root"];
 else 
   $sUserName = "Guest";
 
@@ -62,6 +62,7 @@ else
             <li><a href="../login.php">登入</a></li>
             <?php else: ?>
             <li><a href="../member.php">會員中心</a></li>
+            <li><a href="root/member.php">管理</a></li>
             <li class="divider"></li>
             <li><a href="../logout.php">登出</a></li>
             <?php endif; ?>
@@ -75,18 +76,18 @@ else
 <?php
 include("../mysqconnect.php");
 
-if($_SESSION['username'] != null)
+if($_SESSION['Root'] != null)
 {
         //將$_SESSION['username']丟給$id
         //這樣在下SQL語法時才可以給搜尋的值
-        $id = $_SESSION['username'];
+        $id = $_SESSION['id'];
         //若以下$id直接用$_SESSION['username']將無法使用
         $sql = "SELECT * FROM member_table where username='$id'";
         $result = mysql_query($sql);
         $row = mysql_fetch_row($result);
     
-        echo "<form name=\"form\" method=\"post\" action=\"update_finish.php\">";
-        echo "帳號：<input type=\"text\" name=\"id\" value=\"$row[1]\" />(此項目無法修改) <br>";
+        echo "<form name=\"form\" method=\"post\" action=\"updatefinish.php\">";
+        echo "帳號：<input type=\"text\" name=\"username\" value=\"$row[1]\" /> <br>";
         echo "密碼：<input type=\"password\" name=\"pw\" value=\"$row[2]\" /> <br>";
         echo "電話：<input type=\"text\" name=\"telephone\" value=\"$row[3]\" /> <br>";
 
@@ -96,9 +97,11 @@ if($_SESSION['username'] != null)
 else
 {
         echo '您無權限觀看此頁面!';
-        echo '<meta http-equiv=REFRESH CONTENT=2;url=index.php>';
+        echo '<meta http-equiv=REFRESH CONTENT=2;url=../index.php>';
 }
 ?>
+<a href="javascript:history.back()"><h3>回上一頁<h3></a>
+
 		<script src="../jquery.js"></script>
 		<script src="../js/jquery.slicebox.js"></script>
 		<script src="../js/bootstrap.min.js"></script>

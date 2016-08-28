@@ -1,8 +1,8 @@
 <?php session_start(); ?>
 <?php 
 
-if (isset($_SESSION["username"]))
-  $sUserName = $_SESSION["username"];
+if (isset($_SESSION["Root"]))
+  $sUserName = $_SESSION["Root"];
 else 
   $sUserName = "Guest";
 
@@ -92,7 +92,7 @@ else
 <?php session_start(); ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?php
-if($_SESSION['username'] != null)
+if($_SESSION['Root'] != null)
 {
         echo "<form name=\"form\" method=\"post\" action=\"delete_finish.php\">";
         echo "要刪除的帳號：<input type=\"text\" name=\"id\" /> <br>";
@@ -105,7 +105,7 @@ else
         echo '<meta http-equiv=REFRESH CONTENT=2;url=index.php>';
 }
 ?>
-
+<a href="javascript:history.back()"><h3>回上一頁<h3></a>
 
     <script src="../jquery.js"></script>
     <script src="../js/jquery.slicebox.js"></script>

@@ -1,12 +1,14 @@
 <?php session_start(); ?>
 <?php 
-
 if (isset($_SESSION["username"]))
   $sUserName = $_SESSION["username"];
-// if else ($_SESSION['USER']) ==1 
-
 else 
   $sUserName = "Guest";
+
+if (isset($_SESSION["Root"]))
+  $sUserName = $_SESSION["Root"];
+else 
+  $Root = "";
 ?>
 <html lang="en">
     <head>
@@ -58,16 +60,14 @@ else
 			<ul class="nav navbar-nav navbar-right">
         <li><a href="#"></a></li>
         <li class="dropdown">
-          <a href="#" data-icon="home" data-toggle="dropdown">功能表<b class="caret"></b></a>
-        <ul class="dropdown-menu">
-           <?php if ($sUserName == "Guest"): ?>
-            <li><a href="login.php">登入</a></li><!-- /.修改登入下拉式選單 -->
-            <li><a href="../index.php">回首頁</a></li>
+        <a href="#" data-toggle="dropdown"><?php echo 會員：. $sUserName ?>&nbsp&nbsp&nbsp 功能表<b class="caret"></b></a>
+ <ul class="dropdown-menu">
+             <?php if ($sUserName == "Guest"): ?>
+            <li><a href="login.php">登入</a></li>
             <?php else: ?>
-            <li><a href="../member.php">會員中心</a></li>
-            <li><a href="login.php">管理登入</a></li>
+            <li><a href="member.php">會員中心</a></li>
             <li class="divider"></li>
-            <li><a href="../logout.php">登出</a></li>
+            <li><a href="logout.php">登出</a></li>
             <?php endif; ?>
           </ul>
         </li>
@@ -75,39 +75,41 @@ else
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div align="center">
-  <form name="form" method="post" action="connectroot.php">
- <table width="300" border="0" align="center" cellpadding="5" cellspacing="0" bgcolor="#F2F2F2">
-    <tr>
-      <td colspan="2" align="center"><font color="#000000">會員系統 - 登入</font></td>
-    </tr>
-    <tr>
-      <td width="80" align="center" valign="baseline">帳號</td>
-      <td valign="baseline"><input type="text" name="Root"/></td>
-    </tr>
-    <tr>
-      <td width="80" align="center" valign="baseline">密碼</td>
-      <td valign="baseline"><input type="password" name="pw" /></td>
-    </tr>
-    <tr>
-      <td colspan="2" align="center"><input type="submit"  name="button" value="登入" />
-      <input type="reset" name="btnReset" id="btnReset" value="重設" />
-      <input type="button" name="btnHome"  id="btnHome" value="回首頁" onclick="location.href='index.php'" />
-      <a href="../login2.php">申請帳號</a>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<?php
+include("mysqconnectroot.php");
+
+$id = $_POST['username'];
+$pw = $_POST['pw'];
+$telephone = $_POST['telephone'];
+
+//紅色字體為判斷密碼是否填寫正確
+if($_SESSION['Root'] != null && $pw != null && $telephone != null)
+{
+        $id = $_SESSION['username'];
     
-    
-      </td>
-    </tr>
-  </table>
-  </form>
-			</div>
+        //更新資料庫資料語法
+        $sql = "update member_table set password=$pw, telephone=$telephone where username='$id'";
+        if(mysql_query($sql))
+        {
+                echo '修改成功!';
+                echo '<meta http-equiv=REFRESH CONTENT=2;url=member.php>';
+        }
+        else
+        {
+                echo '修改失敗!';
+                echo '<meta http-equiv=REFRESH CONTENT=2;url=member.php>';
+        }
+}
+else
+{
+        echo '您無權限觀看此頁面!';
+        echo '<meta http-equiv=REFRESH CONTENT=2;url=member.php>';
+}
+?>
 		<script src="../jquery.js"></script>
 		<script src="../js/jquery.slicebox.js"></script>
 		<script src="../js/bootstrap.min.js"></script>
 
 	</body>
 </html>	
-
-
-
-
